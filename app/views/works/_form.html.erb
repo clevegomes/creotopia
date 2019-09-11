@@ -20,8 +20,14 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
+    <%= f.label :document %><br/>
+    <%= f.file_field :document %>
+  </div>
+
+  <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+    <%= f.select :category_id, options_from_collection_for_select(Category.all, "id", "name", @work.category_id), :prompt => 'Select Category' %>
+
   </div>
   <div class="actions">
     <%= f.submit %>

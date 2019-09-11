@@ -4,7 +4,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.json
   def index
-    @works = Work.all
+    @works = Work.paginate(page: params[:page])
   end
 
   # GET /works/1
@@ -41,6 +41,7 @@ class WorksController < ApplicationController
   # PATCH/PUT /works/1.json
   def update
     respond_to do |format|
+      binding.pry
       if @work.update(work_params)
         format.html { redirect_to @work, notice: 'Work was successfully updated.' }
         format.json { render :show, status: :ok, location: @work }
@@ -69,6 +70,6 @@ class WorksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_params
-      params.require(:work).permit(:name, :description, :category_id)
+      params.require(:work).permit(:name, :description, :category_id, :document)
     end
 end
