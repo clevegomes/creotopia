@@ -8,7 +8,8 @@
       <th>Name</th>
       <th>Description</th>
       <th>Category</th>
-      <th colspan="3"></th>
+      <th>Document</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -18,6 +19,7 @@
         <td><%= work.name %></td>
         <td><%= work.description %></td>
         <td><%= work.category.name %></td>
+        <td><img src="<%= work.document %>"></td>
         <td><%= link_to 'Show', work %></td>
         <td><%= link_to 'Edit', edit_work_path(work) %></td>
         <td><%= link_to 'Destroy', work, method: :delete, data: { confirm: 'Are you sure?' } %></td>

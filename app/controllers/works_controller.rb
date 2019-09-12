@@ -41,7 +41,6 @@ class WorksController < ApplicationController
   # PATCH/PUT /works/1.json
   def update
     respond_to do |format|
-      binding.pry
       if @work.update(work_params)
         format.html { redirect_to @work, notice: 'Work was successfully updated.' }
         format.json { render :show, status: :ok, location: @work }
